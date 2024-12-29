@@ -18,39 +18,6 @@ brute-force : `O(n^2)`
 ### Efficient Approach  
 
 ```
-const wordSet = new Set() // O(u) 
-const duplicateSet = new Set() // O(u)
-
-// O(n)
-for (let word of words) {
-  if (wordSet.has(word)) {
-    duplicateSet.add(word)
-  } else {
-    wordSet.add(word)
-  }
-}
-
-let lastUniqueWord = ""
-
-// O(n)
-for (let i = words.length - 1; i >= 0; i--) {
-  const word = words[i]
-  if (!duplicateSet.has(word) && wordSet.has(word)) { // O(1)
-    lastUniqueWord = word
-    break
-  }
-}
-
-return lastUniqueWord
-```
-
-- Time complexity : `O(n)`
-- Space complexity : `O(u)` (`u` : the number of unique words in array)
-
-
-#### Concise Version
-
-```
 function findLastDuplicateID(ids) {
   const visitedSet = new Set()
 
@@ -63,9 +30,14 @@ function findLastDuplicateID(ids) {
   return ""
 }
 ```
+
+- Time complexity : `O(n)`
+- Space complexity : `O(u)` (`u` : the number of unique words in array)
+
+
+#### Concise Version
 ```
 function findFirstDuplicateID(ids) {
-    // TODO: Find an id that appears more than once and return it
     const visitedSet = new Set()
 
     for (const id of ids) {
@@ -73,7 +45,6 @@ function findFirstDuplicateID(ids) {
         visitedSet.add(id)
     }
 
-    // Return an empty string if no duplicate ids are found
     return "";
 }
 ```
