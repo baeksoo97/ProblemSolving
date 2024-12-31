@@ -48,6 +48,50 @@ function sumOfMapValues(numberMap) {
       sum += quantity
   }
 }
+```
+
+## Problem 3. 최다 등장 요소 찾기 - frequency
+> 사용 예 : 검색 엔진 최적화
+
+맵을 사용하면 각 정수에 대해 전체 목록을 검토하는 대신(`O(n^2)`), 배열을 한 번씩 살펴보면서 각 요소의 총합을 유지할 수 있습니다.
+
+
+```
+function findCelebrityElement(array) {
+  const majorityThreshold = array.length / 2
+  const countMap = new Map()
+
+  for (const num or elements) {
+    countMap.set(num, (countMap.get(num) || 0) + 1)
+
+    if (countMap.get(num) > majorityThreshold)
+      return num
+  }
+  return -1
+}
+```
+
+## Problem 4. Keyword Document Indexer 특정한 키워드 indexing하기
+
+> 사용 예 : 빠른 액세스를 위한 데이터 구조화
+
+특정 단어가 어떤 documents에 있는지 색인이 필요함 
+
+```
+function createKeywordIndex(documents) {
+  const index = new Map()
+
+  documents.forEach((doc, docIndex) => {
+    const words = doc.split(/+s/)
+    for (const word of words) {
+      if (index.has(word))
+        index.get(word).add(docIndex)
+      else
+        index.set(word, new Set([docIndex]))
+    }
+  })
+  return index
+}
 
 
 
